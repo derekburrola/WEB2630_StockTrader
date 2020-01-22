@@ -27,6 +27,9 @@
     3. Copy Template Into Your Repository
         * git push --mirror https://github.com/GITHUB_USERNAME/WEB2630_StockTrader
             * Note: Make sure to put your GitHub Username in place of GITHUB_USERNAME
+    4. Remove Copy WEB2630_Exercise1.git
+    5. Clone Your GitHub Repository
+        * git clone https://github.com/GITHUB_USERNAME/WEB2630_Exercise1
 3. Start ToDo Comments and Project Requirements Above
 4. Submit Your GitHub URL
   * For Part 1, you just need to have something submitted to show your progress. You will have more time to finish the project for Part 2.
