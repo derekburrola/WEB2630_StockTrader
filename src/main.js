@@ -1,15 +1,23 @@
-//ToDo: Import vue and name it Vue
-//ToDo: Import vue-router and name it VueRouter
-//ToDo: Import vue-resource and name it VueResource
+//DONE: Import vue and name it Vue
+import Vue from 'vue'
+//DONE: Import vue-router and name it VueRouter
+import VueRouter from 'vue-router'
+//DONE: Import vue-resource and name it VueResource
+import VueResource from 'vue-resource'
 
-//ToDo: Import App.vue and name it App
-//ToDo: Import routes.js and use the {} passing routes
-//ToDo: Import store/store.js and name it store
+//DONE: Import App.vue and name it App
+import App from './App.vue'
+//DONE: Import routes.js and use the {} passing routes
+import { routes } from './routes.js'
+//DONE: Import store/store.js and name it store
+import store from './store/store.js'
 
 Vue.config.productionTip = false
 
-//ToDo Initialize VueRouter using Vue.use()
-//ToDo Initialize VueResource using Vue.use()
+//DONE Initialize VueRouter using Vue.use()
+Vue.use(VueRouter)
+//DONE Initialize VueResource using Vue.use()
+Vue.use(VueResource)
 
 Vue.http.options.root = //ToDo: Set Equal to your Firebase Database URL
 
