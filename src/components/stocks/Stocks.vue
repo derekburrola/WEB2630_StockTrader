@@ -1,5 +1,6 @@
 <template>
   <div>
+    stock test
     <!--ToDo: Load app-stock component-->
     <!--ToDo: Loop through stock in stocks using v-for-->
     <!--ToDo: Bind to stock using : and pass stock from the v-for-->
