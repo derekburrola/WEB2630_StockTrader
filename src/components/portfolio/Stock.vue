@@ -35,31 +35,49 @@
 </style>
 
 <script>
-    //ToDo: Import mapActions from vuex
+    //DONE: Import mapActions from vuex
+    //import { mapActions } from 'vuex'
 
     export default {
         //ToDo: Set props equal to stock using array syntax
-
+        
         data() {
             return {
-                //ToDo: Create data object called quantity and set it to 0
+                //DONE: Create data object called quantity and set it to 0
+                //quantity: 0
             }
         },
         computed: {
-            //ToDo: Create a computed function called insufficientQuantity
-                //ToDo: Have insufficientQuantity() return this.quantity > this.stock.quantity
+            //DONE: Create a computed function called insufficientQuantity
+                //DONE: Have insufficientQuantity() return this.quantity > this.stock.quantity
+            // insfufficientQuantity(){
+            //     return this.quantity > this.stock.quanity;
+            // }
         },
         methods: {
-            //ToDo: Create ...mapActions method
-                //ToDo: Call placeSellOrder: 'sellStock'
+            //DONE: Create ...mapActions method
+                //DONE: Call placeSellOrder: 'sellStock'
+            // ...mapActions({
+            //     placeSellOrder: 'sellStock'
+            // }),
 
-            //ToDo: Create sellStock method
-                //ToDo: Create const called order that holds an object
-                    //ToDo: Set stockId: to this.stock.id
-                    //ToDo: Set stockPrice: to this.stock.price
-                    //ToDo: Set quantity: to this.quantity
-            //ToDo: Outside the data object pass the data object order to placeSellOrder()
-            //ToDo: Reset quantity to 0
+            // //DONE: Create sellStock method
+            //     //DONE: Create const called order that holds an object
+            //         //DONE: Set stockId: to this.stock.id
+            //         //DONE: Set stockPrice: to this.stock.price
+            //         //DONE: Set quantity: to this.quantity
+            // //DONE: Outside the data object pass the data object order to placeSellOrder()
+            // //DONE: Reset quantity to 0
+            // sellStock(){
+            //     const order = {
+            //             stockId: this.stock.id,
+            //             stockPrice: this.stock.price,
+            //             quantity: this.quantity
+            //     };
+            //     this.placeSellOrder(order)
+                
+            //     this.quantity = 0
+            // }
         }
     }
 </script>

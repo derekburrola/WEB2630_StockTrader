@@ -25,8 +25,10 @@ export default {
   components: {
     appHeader: Header
   },
-  //ToDo: On page creation dispatch 'initStocks' to the vuex $store
-  //actions: this.$store.dispatch('initStocks')
+  //DONE: On page creation dispatch 'initStocks' to the vuex $store
+  created(){
+    this.$store.dispatch("initStocks");
+  }
   
 }
 </script>
