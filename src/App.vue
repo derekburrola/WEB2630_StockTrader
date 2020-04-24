@@ -46,14 +46,17 @@ body {
 
 /*ToDo: Create Keyframes for slide-out, remember to include from and to*/
 /*You can use any settings*/
-
-    .leave-active{
-        transition: opacity 1s ease;
+.slide-leave-active{
+        transition: opacity 0.25s ease;
         opacity: 0;
-        animation: slide-in 1s ease-out forwards;
+        animation: slide-in 0.25s ease-out forwards;
     }
-    .enter-active{
-        animation: slide-in 1s ease-out forwards;
+    .slide-leave{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .slide-enter-active{
+        animation: slide-in 0.25s ease-out forwards;
     }
 
     @keyframes slide-out{
@@ -72,5 +75,6 @@ body {
             transform: translateX(1px);
         }
     }
+
 </style>
 
