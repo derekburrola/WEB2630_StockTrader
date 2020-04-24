@@ -1,8 +1,8 @@
 <template>
   <div>
     <!--DONE: Load app-stock component-->
-    <!--ToDo: Loop through stock in stocks using v-for-->
-    <!--ToDo: Bind to stock using : and pass stock from the v-for-->
+    <!--DONE: Loop through stock in stocks using v-for-->
+    <!--DONE: Bind to stock using : and pass stock from the v-for-->
     <app-Stock
       v-for="stock in stocks"
       :key="stock"
@@ -29,7 +29,7 @@ export default {
     
   },
 
-  //ToDo: Initialize Stock component and name it appStock
+  //DONE: Initialize Stock component and name it appStock
   components:{
     appStock: Stock
   }

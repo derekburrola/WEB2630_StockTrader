@@ -36,30 +36,31 @@
 
 <script>
     //DONE: Import mapActions from vuex
-    //import { mapActions } from 'vuex'
+    import { mapActions } from 'vuex'
 
     export default {
         //ToDo: Set props equal to stock using array syntax
         
+        
         data() {
             return {
                 //DONE: Create data object called quantity and set it to 0
-                //quantity: 0
+                quantity: 0
             }
         },
         computed: {
             //DONE: Create a computed function called insufficientQuantity
                 //DONE: Have insufficientQuantity() return this.quantity > this.stock.quantity
-            // insfufficientQuantity(){
-            //     return this.quantity > this.stock.quanity;
-            // }
+            insfufficientQuantity(){
+                return this.quantity > this.stock.quanity;
+            }
         },
         methods: {
             //DONE: Create ...mapActions method
                 //DONE: Call placeSellOrder: 'sellStock'
-            // ...mapActions({
-            //     placeSellOrder: 'sellStock'
-            // }),
+            ...mapActions({
+                placeSellOrder: 'sellStock'
+            }),
 
             // //DONE: Create sellStock method
             //     //DONE: Create const called order that holds an object
@@ -68,16 +69,16 @@
             //         //DONE: Set quantity: to this.quantity
             // //DONE: Outside the data object pass the data object order to placeSellOrder()
             // //DONE: Reset quantity to 0
-            // sellStock(){
-            //     const order = {
-            //             stockId: this.stock.id,
-            //             stockPrice: this.stock.price,
-            //             quantity: this.quantity
-            //     };
-            //     this.placeSellOrder(order)
+            sellStock(){
+                const order = {
+                        stockId: this.stock.id,
+                        stockPrice: this.stock.price,
+                        quantity: this.quantity
+                };
+                this.placeSellOrder(order)
                 
-            //     this.quantity = 0
-            // }
+                this.quantity = 0
+            }
         }
     }
 </script>
