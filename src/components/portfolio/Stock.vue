@@ -12,14 +12,16 @@
                     <!--ToDo: Inside input use v-model.number and pass quantity-->
                         <!--ToDo: Bind to class using : and pass object called danger that takes in insufficientQuantity-->
                     <input
+                            v-model.number="quantity"
+                            :class="{danger:insufficientFunds}"
                             type="number"
                             class="form-control"
                             placeholder="Quantity">
                 </div>
                 <div class="pull-right">
-                    <!--ToDo: Inside the button add a click event that calls sellStock-->
+                    <!--DONE: Inside the button add a click event that calls sellStock-->
                         <!--ToDo: Bind to disabled using : and set it equal to insufficientQuantity || quantity is less than or equal to 0 || !Number.isInteger(quantity)-->
-                    <button class="btn btn-success">
+                    <button class="btn btn-success" @click="sellStock">
                         <!--ToDo: Display insufficientQuantity data object and add if using ? 'Not Enough' else 'Sell'-->
                     </button>
                 </div>
@@ -39,8 +41,8 @@
     import { mapActions } from 'vuex'
 
     export default {
-        //ToDo: Set props equal to stock using array syntax
-        
+        //DONE: Set props equal to stock using array syntax
+        props: ['stock'],
         
         data() {
             return {
@@ -71,12 +73,11 @@
             // //DONE: Reset quantity to 0
             sellStock(){
                 const order = {
-                        stockId: this.stock.id,
-                        stockPrice: this.stock.price,
-                        quantity: this.quantity
-                };
+                    stockId: this.stock.id,
+                    stockPrice: this.stock.price,
+                    quantity: this.quantity
+                }
                 this.placeSellOrder(order)
-                
                 this.quantity = 0
             }
         }

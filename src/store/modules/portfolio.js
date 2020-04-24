@@ -2,8 +2,8 @@
 //DONE: Create funds and set it to 10000
 //DONE: Create an array called stocks and leave it empty
 const state = {
-  funds : 10000,
-  stocks : []
+  funds: 10000,
+  stocks: []
 }
 
 
@@ -75,7 +75,7 @@ const actions={
 //DONE: Create funds method that passes state
 //DONE: Return state.funds
 const getters={
-  stockPortolio (state, getters) {
+  stockPortfolio (state, getters) {
     return state.stocks.map(stock => {
       const record = getters.stocks.find(element => element.id == stock.id);
         return {

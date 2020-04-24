@@ -27,7 +27,7 @@ export default {
   },
   //DONE: On page creation dispatch 'initStocks' to the vuex $store
   created(){
-    this.$store.dispatch("initStocks");
+    this.$store.dispatch('initStocks');
   }
   
 }

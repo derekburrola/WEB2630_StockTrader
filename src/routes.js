@@ -12,5 +12,4 @@ export const routes = [
   { path: '/portfolio', component: Portfolio},
   //DONE: Create Route for Stocks Component
   { path: '/stocks', component: Stocks},
-  { path: '*', component: Home }
 ];

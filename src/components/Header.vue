@@ -28,7 +28,6 @@
         </ul>
         <strong class="navbar-text navbar-right">Funds:
           <!--ToDo: Call funds computed function and pipe the currency filter that is created in main.js-->
-          {{  }}
         </strong>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -82,16 +81,16 @@ export default {
     //DONE: Create ...mapActions method
     //DONE: Call randomizeStocks: 'randomizeStocks'
     //DONE: Call fetchData: 'loadData'
-    ...mapActions([
-      'randomizeStocks',
-      'loadData'
-    ]),
+    ...mapActions({
+      randomizeStocks:'randomizeStocks',
+      fetchData: 'loadData'
+    }),
     
 
     //DONE: Create endDay method
     //DONE: Call randomizeStocks()
     endDay(){
-      //randomizeStocks()
+      this.randomizeStocks();
     },
     
 
@@ -102,19 +101,19 @@ export default {
     //DONE: Set stocks: to the $store getters stocks
     //DONE: Outside the data object use $http, using .put pass 'data.json' and the data object
     saveData(){
-      //const data = {
-        //funds : $store.getters.funds,
-        //stockPortfolio : $store.getters.stockPortfolio,
-        //stocks : $store.getters.stocks,
-      //}
-      //$http.put('data.json', data)
+      const data = {
+        funds : this.$store.getters.funds,
+        stockPortfolio : this.$store.getters.stockPortfolio,
+        stocks : this.$store.getters.stocks,
+      }
+      this.$http.put('data.json', data)
     },
     
 
     //DONE: Create loadData method
     //DONE: Call fetchData()
     loadData(){
-      //fetchData()
+      this.fetchData()
     }
   }
 }

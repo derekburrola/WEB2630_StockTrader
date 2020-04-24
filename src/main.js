@@ -19,10 +19,10 @@ Vue.use(VueRouter)
 //DONE Initialize VueResource using Vue.use()
 Vue.use(VueResource)
 
-Vue.http.options.root = ""//ToDo: Set Equal to your Firebase Database URL
+Vue.http.options.root = "https://stocktrade-74e6a.firebaseio.com/"//ToDo: Set Equal to your Firebase Database URL
 
   Vue.filter("currency", value => {
-    //TODO: Return value.toLocaleString(), Add '$' sign before value
+    //DONE: Return value.toLocaleString(), Add '$' sign before value
     return "$"+value.toLocaleString();
   })
 

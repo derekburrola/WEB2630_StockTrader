@@ -4,7 +4,7 @@
     <!--DONE: Load app-stock component-->
     <app-stock
       v-for="stock in stocks"
-      :key="stock"
+      :key="stock.id"
       :stock="stock"
     ></app-stock>
     <!--DONE: Loop through stock in stocks using v-for-->
@@ -28,8 +28,6 @@ export default {
     stocks(){
       return this.$store.getters.stocks;
     }
-    
-    
   }
 }
 </script>
