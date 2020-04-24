@@ -3,26 +3,29 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <!--ToDo: Display the stock.name data object-->
-                    <!--ToDo: Inside <small> tags display Price: stock.price | Quantity stock.quantity-->
+                    <!--DONE: Display the stock.name data object-->
+                    {{ stock.name }}
+                    <!--DONE: Inside <small> tags display Price: stock.price | Quantity stock.quantity-->
+                        <small>Price: {{ stock.price }} | Quantity: {{ stock.quantity}} </small>
                 </h3>
             </div>
             <div class="panel-body">
                 <div class="pull-left">
-                    <!--ToDo: Inside input use v-model.number and pass quantity-->
-                        <!--ToDo: Bind to class using : and pass object called danger that takes in insufficientQuantity-->
+                    <!--DONE: Inside input use v-model.number and pass quantity-->
+                        <!--DONE: Bind to class using : and pass object called danger that takes in insufficientQuantity-->
                     <input
                             v-model.number="quantity"
-                            :class="{danger:insufficientFunds}"
+                            :class="{danger:insufficientQuantity}"
                             type="number"
                             class="form-control"
                             placeholder="Quantity">
                 </div>
                 <div class="pull-right">
                     <!--DONE: Inside the button add a click event that calls sellStock-->
-                        <!--ToDo: Bind to disabled using : and set it equal to insufficientQuantity || quantity is less than or equal to 0 || !Number.isInteger(quantity)-->
-                    <button class="btn btn-success" @click="sellStock">
+                        <!--DONE: Bind to disabled using : and set it equal to insufficientQuantity || quantity is less than or equal to 0 || !Number.isInteger(quantity)-->
+                    <button class="btn btn-success" @click="sellStock" :disabled="insufficientQuantity || quantity<=0 || !Number.isInteger(quantity)">
                         <!--ToDo: Display insufficientQuantity data object and add if using ? 'Not Enough' else 'Sell'-->
+                        {{ insufficientQuantity ? 'Not Enough' : 'Sell' }}
                     </button>
                 </div>
             </div>
@@ -53,8 +56,8 @@
         computed: {
             //DONE: Create a computed function called insufficientQuantity
                 //DONE: Have insufficientQuantity() return this.quantity > this.stock.quantity
-            insfufficientQuantity(){
-                return this.quantity > this.stock.quanity;
+            insufficientQuantity(){
+                return this.quantity > this.stock.quantity;
             }
         },
         methods: {

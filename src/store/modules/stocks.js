@@ -31,7 +31,7 @@ const actions = {
     commit('BUY_STOCK', order);
   },
 
-  //??ToDo: Create initStocks that is a pointer function that passes {commit}
+  //DONE: Create initStocks that is a pointer function that passes {commit}
   //DONE: Use the commit method passing 'SET_STOCKS' and stocks
   initStocks: ({ commit }) => {
     commit('SET_STOCKS', stocks)

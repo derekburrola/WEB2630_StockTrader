@@ -55,7 +55,7 @@ const mutations = {
 
 
 //DONE: Create const called actions that is a data object()
-//ToDo: Create sellStock that passes ({commit}, order)
+//DONE: Create sellStock that passes ({commit}, order)
 //  DONE: Use the commit method passing 'SELL_STOCK' and order
 const actions={
   sellStock({ commit }, order){
@@ -92,7 +92,7 @@ const getters={
 };
 
 export default {
-  //ToDo: Export the const state, mutations, actions, and getters
+  //DONE: Export the const state, mutations, actions, and getters
   state,
   mutations,
   actions,

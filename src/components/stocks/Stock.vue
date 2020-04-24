@@ -3,14 +3,16 @@
     <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <!--ToDo: Display the stock.name data object-->
-          <!--ToDo: Inside <small> tags display Price: stock.price-->
+          <!--DONE: Display the stock.name data object-->
+          {{ stock.name }}
+          <!--DONE: Inside <small> tags display Price: stock.price-->
+            <small>Price: {{ stock.price }}</small>
         </h3>
       </div>
       <div class="panel-body">
         <div class="pull-left">
           <!--DONE: Inside input use v-model.number and pass quantity-->
-          <!--ToDo: Bind to class using : and pass object called danger that takes in insufficientFunds-->
+          <!--DONE: Bind to class using : and pass object called danger that takes in insufficientFunds-->
           <input
             v-model.number="quantity"
             :class="{danger:insufficientFunds}"
@@ -21,10 +23,10 @@
         </div>
         <div class="pull-right">
           <!--DONE: Inside the button add a click event that calls buyStock-->
-          <!--TODO: Bind to disabled using : and set it equal to insufficientFunds || quantity is less than or equal to 0 || !Number.isInteger(quantity)-->
-          <button class="btn btn-success" @click="buyStock">
-            <!--TODO: Display insufficientFunds data object and add if using ? 'Not Enough' else 'Buy'-->
-
+          <!--DONE: Bind to disabled using : and set it equal to insufficientFunds || quantity is less than or equal to 0 || !Number.isInteger(quantity)-->
+          <button class="btn btn-success" @click="buyStock" :disabled="insufficientFunds || quantity<=0 || !Number.isInteger(quantity)">
+            <!--DONE: Display insufficientFunds data object and add if using ? 'Not Enough' else 'Buy'-->
+            {{ insufficientFunds ? 'Not Enough' : 'Buy' }}
           </button>
         </div>
       </div>
@@ -40,7 +42,7 @@
 
 <script>
 export default {
-  //ToDo: Set props equal to stock using array syntax
+  //DONE: Set props equal to stock using array syntax
   props: ['stock'],
   data () {
     return {

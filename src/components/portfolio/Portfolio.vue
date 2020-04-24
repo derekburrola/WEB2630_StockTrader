@@ -7,8 +7,7 @@
       v-for="stock in stocks"
       :key="stock"
       :stock="stock"
-    >
-    </app-Stock>
+    ></app-Stock>
   </div>
 </template>
 
@@ -23,7 +22,7 @@ export default {
     //DONE: Create ...mapGetters method
     //DONE: Call stocks: 'stockPortfolio'
     ...mapGetters({
-      stocks:'stockPortfolio',
+      stocks: 'stockPortfolio',
     }),
     
     

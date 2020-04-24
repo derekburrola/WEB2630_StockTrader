@@ -6,7 +6,7 @@
     <hr>
 
     <p>Your Funds:
-      <!--TODO: Call funds computed function and pipe the currency filter that is created in main.js-->
+      <!--DONE: Call funds computed function and pipe the currency filter that is created in main.js-->
       {{ funds | currency }}
     </p>
   </div>

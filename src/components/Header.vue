@@ -27,7 +27,8 @@
             ><a>Stocks</a></router-link>
         </ul>
         <strong class="navbar-text navbar-right">Funds:
-          <!--ToDo: Call funds computed function and pipe the currency filter that is created in main.js-->
+          <!--DONE: Call funds computed function and pipe the currency filter that is created in main.js-->
+          {{ funds | currency }}
         </strong>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -35,9 +36,9 @@
             <a href="#" @click="endDay">End Day</a>
           </li>
 
-          <!--ToDo: Inside <li> Bind to class using :class that passes an object {} called open and set it to isDropdownOpen-->
+          <!--DONE: Inside <li> Bind to class using :class that passes an object {} called open and set it to isDropdownOpen-->
           <!--DONE: Add click event that toggles isDropdownOpen to true and false-->
-          <li class="dropdown" @click="isDropdownOpen=!isDropdownOpen">
+          <li class="dropdown" @click="isDropdownOpen=!isDropdownOpen" :class="{open:isDropdownOpen}">
             <a
               href="#"
               class="dropdown-toggle"
@@ -95,7 +96,7 @@ export default {
     
 
     //DONE: Create SaveData method
-    //TODO: Create const called data that holds an object
+    //DONE: Create const called data that holds an object
     //DONE: Set funds: to the $store getters funds
     //DONE: Set stockPortfolio: to the $store getters stockPortfolio
     //DONE: Set stocks: to the $store getters stocks
