@@ -4,7 +4,9 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <!--ToDo: Display the stock.name data object-->
+          {{ stock.name }}
           <!--ToDo: Inside <small> tags display Price: stock.price-->
+            <small>{{ stock.price }}</small>
         </h3>
       </div>
       <div class="panel-body">
@@ -18,10 +20,11 @@
           >
         </div>
         <div class="pull-right">
-          <!--ToDo: Inside the button add a click event that calls buyStock-->
-          <!--ToDo: Bind to disabled using : and set it equal to insufficientFunds || quantity is less than or equal to 0 || !Number.isInteger(quantity)-->
-          <button class="btn btn-success">
-            <!--ToDo: Display insufficientFunds data object and add if using ? 'Not Enough' else 'Buy'-->
+          <!--DONE: Inside the button add a click event that calls buyStock-->
+          <!--DONE: Bind to disabled using : and set it equal to insufficientFunds || quantity is less than or equal to 0 || !Number.isInteger(quantity)-->
+          <button class="btn btn-success" @click="buyStock" :disabled="insufficientFunds || quantity <= 0 || !Number.isInteger(quantity)">
+            <!--DONE: Display insufficientFunds data object and add if using ? 'Not Enough' else 'Buy'-->
+            {{ insufficientFunds ? 'Not Enough' : 'Buy' }}
           </button>
         </div>
       </div>
@@ -38,27 +41,43 @@
 <script>
 export default {
   //ToDo: Set props equal to stock using array syntax
-
+  props:['stock'],
   data () {
     return {
-      //ToDo: Create data object called quantity and set it to 0
+      //DONE: Create data object called quantity and set it to 0
+      quantity: 0
     }
   },
   computed: {
-    //ToDo: Create a computed function called funds
-    //ToDo: Have funds() return $store.getters.funds
+    //DONE: Create a computed function called funds
+    //DONE: Have funds() return $store.getters.funds
+    funds(){
+      return this.$store.getters.funds;
+    },
 
-    //ToDo: Create a computed function called insufficientFunds
-    //ToDo: Have insufficientFunds() return this.quantity * this.stock.price > this.funds
+    //DONE: Create a computed function called insufficientFunds
+    //DONE: Have insufficientFunds() return this.quantity * this.stock.price > this.funds
+    insufficientFunds(){
+      return this.quantity * this.stock.price > this.funds;
+    }
   },
   methods: {
-    //ToDo: Create buyStock method
-    //ToDo: Create const called order that holds an object
-    //ToDo: Set stockId: to this.stock.id
-    //ToDo: Set stockPrice: to this.stock.price
-    //ToDo: Set quantity: to this.quantity
-    //ToDo: Outside the data object $store.dispatch() passing 'buyStock' and order
-    //ToDo: Reset quantity to 0
+    //DONE: Create buyStock method
+    //DONE: Create const called order that holds an object
+    //DONE: Set stockId: to this.stock.id
+    //DONE: Set stockPrice: to this.stock.price
+    //DONE: Set quantity: to this.quantity
+    //DONE: Outside the data object $store.dispatch() passing 'buyStock' and order
+    //DONE: Reset quantity to 0
+    buyStock(){
+      const order = {
+        stockId: this.stock.stock.id,
+        stockPrice: this.stock.price,
+        quantity: this.quantity
+      }
+      this.$store.dispatch('buyStock',order)
+      this.quantity = 0
+    }
   }
 }
 </script>

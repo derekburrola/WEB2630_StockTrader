@@ -8,32 +8,59 @@ const state = {
 
 
 //DONE: Create const called mutations that is a data object{}
-//ToDo: Inside mutations object create a vuex method called 'BUY_STOCK' that takes four parameters (state, {stockId, quantity, stockPrice}
-//ToDo: Create const called record that is equal to state.stocks.find(element => element.id == stockId)
-//ToDo: If (record) then set record.quantity += quantity
-//ToDo: Else push id: stockId and quantity: quantity to state.stocks
-//ToDo: Set state.funds -= stockPrice * quantity
+//DONE: Inside mutations object create a vuex method called 'BUY_STOCK' that takes four parameters (state, {stockId, quantity, stockPrice}
+//DONE: Create const called record that is equal to state.stocks.find(element => element.id == stockId)
+//DONE: If (record) then set record.quantity += quantity
+//DONE: Else push id: stockId and quantity: quantity to state.stocks
+//DONE: Set state.funds -= stockPrice * quantity
 const mutations = {
-
-    
+  BUY_STOCK(state, {stockId, quantity, stockPrice}){
+    const record = state.stocks.find(element => element.id == stockId)
+    if(record){
+      record.quantity += quantity
+    }
+    else{
+      state.stocks.push({
+        id: stockId,
+        quantity: quantity
+      });
+    }
+    state.funds -= stockPrice * quantity
+  },
+  SELL_STOCK(state, {stockId, quantity, stockPrice}){
+    const record = state.stocks.find(element => element.id == stockId)
+    if(record.quantity > quantity){
+      record.quantity -= quantity
+    }
+    else{
+      state.stocks.splice(state.stocks.indexOf(record, 1))
+    }
+    state.funds += stockPrice * quantity
+  },
+  SET_PORTFOLIO(state, portfolio){
+    state.funds = portfolio.funds
+    state.stocks = portfolio.stockPortolio ? portfolio.stockPortolio : []
+  }    
 }
 
-//ToDo: Inside mutations object create a vuex method called 'SELL_STOCK' that takes four parameters (state, {stockId, quantity, stockPrice}
-//ToDo: Create const called record that is equal to state.stocks.find(element => element.id == stockId)
-//ToDo: If (record.quantity > quantity) then set record.quantity -= quantity
-//ToDo: Else set state.stocks.splice(state.stocks.indexOf(record, 1))
-//ToDo: Set state.funds += stockPrice * quantity
+//DONE: Inside mutations object create a vuex method called 'SELL_STOCK' that takes four parameters (state, {stockId, quantity, stockPrice}
+//DONE: Create const called record that is equal to state.stocks.find(element => element.id == stockId)
+//DONE: If (record.quantity > quantity) then set record.quantity -= quantity
+//DONE: Else set state.stocks.splice(state.stocks.indexOf(record, 1))
+//DONE: Set state.funds += stockPrice * quantity
 
-//ToDo: Inside mutations object create a vuex method called 'SET_PORTFOLIO' that takes two parameters (state, portfolio}
-//ToDo: Set state.funds equal t portfolio.funds
-//ToDo: Set state.stocks equal to portfolio.stockPortfolio if portfolio.stockPortfolio else [] (Use if else using ? and :)
+//DONE: Inside mutations object create a vuex method called 'SET_PORTFOLIO' that takes two parameters (state, portfolio}
+//DONE: Set state.funds equal t portfolio.funds
+//DONE: Set state.stocks equal to portfolio.stockPortfolio if portfolio.stockPortfolio else [] (Use if else using ? and :)
 
 
-//ToDo: Create const called actions that is a data object()
+//DONE: Create const called actions that is a data object()
 //ToDo: Create sellStock that passes ({commit}, order)
-//  ToDo: Use the commit method passing 'SELL_STOCK' and order
+//  DONE: Use the commit method passing 'SELL_STOCK' and order
 const actions={
-  
+  sellStock({ commit }, order){
+    commit('SELL_STOCK', order)
+  }
 }
 
 //DONE: Create const called getters that is a data object{}

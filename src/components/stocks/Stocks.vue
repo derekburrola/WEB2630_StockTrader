@@ -2,9 +2,13 @@
   <div>
     stock test
     <!--DONE: Load app-stock component-->
-    <app-stock></app-stock>
-    <!--ToDo: Loop through stock in stocks using v-for-->
-    <!--ToDo: Bind to stock using : and pass stock from the v-for-->
+    <app-stock
+      v-for="stock in stocks"
+      :key="stock"
+      :stock="stock"
+    ></app-stock>
+    <!--DONE: Loop through stock in stocks using v-for-->
+    <!--DONE: Bind to stock using : and pass stock from the v-for-->
   </div>
 </template>
 
@@ -19,8 +23,12 @@ export default {
   },
 
   computed: {
-    //ToDo: Create stocks computer method
-    // ToDo: Return $store.getters.stocks
+    //DONE: Create stocks computer method
+    //DONE: Return $store.getters.stocks
+    stocks(){
+      return this.$store.getters.stocks;
+    }
+    
     
   }
 }
